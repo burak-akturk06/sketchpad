@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-width: 100vh;
+}
+
+#user-inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: turquoise;
+}
+#user-input-box{
+    margin-top: 16px;
+}
+
+#sketch-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 7;
+    background-color: beige;
+}
+#sketch-square{
+    border: 2px;
+    border-style: solid;
+    border-color: red;
+    height: 480px;
+    width: 480px;
+}
+
+
+
