@@ -39,5 +39,16 @@ p{
     width: 480px;
 }
 
+.row-container{
+    display: flex;
+    flex-direction: column;
+    flex:auto;
+}
+
+.grid-square{
+    border: 1px solid black;
+    flex: auto;
+}
+
 
 

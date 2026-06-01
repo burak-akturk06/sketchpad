@@ -4,7 +4,11 @@ const messageDisplay = document.getElementById("message-display");
 
 btn.addEventListener("click", () => {
 
-    checkInput(inputBox.value);
+    if(checkInput(inputBox.value)){
+        clearGrids();
+        createGrids(inputBox.value);
+        inputBox.value = "";
+    }
 })
 
 function checkInput(input){
@@ -14,12 +18,43 @@ function checkInput(input){
     if (input === "" || !Number.isInteger(convertedInput) || convertedInput > 100){
         messageDisplay.textContent = "Please enter a valid number (max value: 100)";
         messageDisplay.style.color = "red";
+        return false;
     }
 
     else{
         messageDisplay.textContent = "Number: " + input;
         messageDisplay.style.color = "blue";
-        inputBox.value = "";
+        return true;
+    }
+}
+
+function clearGrids(){
+    const grids = document.querySelectorAll("#sketch-square > div");
+    for(let i = 0; i < grids.length; i++){
+        grids[i].remove();
+    }
+}
+
+function createGrids(input){
+    const sketchSquare = document.getElementById("sketch-square");
+
+
+    for (let i = 0; i < input; i++) {
+        const rowContainer = document.createElement("div");
+        rowContainer.classList.add("row-container");
+        sketchSquare.appendChild(rowContainer);
+    }
+
+    const gridRows = document.querySelectorAll("#sketch-square > div");
+    for (let i = 0; i < input; i++) {
+        for(let j = 0; j < input; j++){
+        const gridSquare = document.createElement("div");
+        gridSquare.classList.add("grid-square");
+        gridSquare.addEventListener("pointerenter", (event) => {
+            event.target.style.backgroundColor = "blue";
+        })
+        gridRows[j].appendChild(gridSquare);
+        }
     }
 }
 
