@@ -50,9 +50,16 @@ function createGrids(input){
         for(let j = 0; j < input; j++){
         const gridSquare = document.createElement("div");
         gridSquare.classList.add("grid-square");
-        gridSquare.addEventListener("pointerenter", (event) => {
+        gridSquare.addEventListener("mousedown", (event) => {
             event.target.style.backgroundColor = "blue";
         })
+
+        gridSquare.addEventListener("pointerenter", (event) => {
+            if(event.buttons == 1){
+                event.target.style.backgroundColor = "blue";
+            }
+        })    
+
         gridRows[j].appendChild(gridSquare);
         }
     }
